@@ -7,7 +7,21 @@
 </head>
 <body>
     <main>
-
+        <header>
+            <h1 id="title">Casa de <span>Câmbio</span></h1>
+        </header>
+        <form id="currency-form" action="">
+            <label for="">
+                <span>Digite a moeda:</span>
+                <input type="text" id="currency-input" list="currency-list" disabled>
+                <datalist id="currency-list"></datalist>
+            </label>
+            <button id="submit-btn" type="submit">Pesquisar</button>
+        </form>
+        <section id="conversion-rates-section">
+            <h2 id="conversion-rates-title"></h2>
+            <div id="conversion-rates"></div>
+        </section>
     </main>
     <script type="module" src="./src/main.js"></script>
 </body>
