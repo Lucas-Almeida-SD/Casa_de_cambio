@@ -9,5 +9,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "require-jsdoc": "off",
+        "max-len": ["error", 100]
     }
 }
