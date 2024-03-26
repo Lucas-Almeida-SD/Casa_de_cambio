@@ -4,9 +4,11 @@ import Swal from 'sweetalert2';
 const {API_KEY} = process.env;
 const BASE_URL = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest`;
 const ID = {
-  selectCurrency: 'select-currency',
+  currencyInput: 'currency-input',
+  currencyList: 'currency-list',
   submitBtn: 'submit-btn',
   conversionRates: 'conversion-rates',
+  conversionRatesTitle: 'conversion-rates-title',
 };
 
 function messageError(message) {
@@ -24,23 +26,24 @@ function generateCurrencyOption(currency) {
   return option;
 }
 
-async function generateCurrencySelect() {
+async function generateCurrencyList() {
   try {
     const data = await fetch(`${BASE_URL}/AED`)
         .then((response) => response.json());
 
     const currencyList = Object.keys(data.conversion_rates);
 
-    const selectCurrency = document.querySelector(`#${ID.selectCurrency}`);
+    const currencyInput = document.querySelector(`#${ID.currencyInput}`);
+    const currencyDatalist = document.querySelector(`#${ID.currencyList}`);
     currencyList.forEach((currency) => {
-      selectCurrency.appendChild((generateCurrencyOption(currency)));
+      currencyDatalist.appendChild((generateCurrencyOption(currency)));
     });
-    selectCurrency.disabled = false;
+    currencyInput.disabled = false;
   } catch (error) {
     messageError('Erro ao carregar lista de moedas. Recarregue a página!');
   }
 }
 
 window.onload = () => {
-  generateCurrencySelect();
+  generateCurrencyList();
 };
