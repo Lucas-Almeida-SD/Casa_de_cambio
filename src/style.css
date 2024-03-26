@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Biryani&family=Poppins&family=Roboto&display=swap');
+
+:root {
+    --background: #272727;
+    --background-table: rgb(137, 137, 137, 0.1);
+    --green-btn: #96EB95;
+    --green-text: #95EBA8;
+    --yellow-text: #FFE713;
+    --font-title: "Poppins", sans-serif;
+    --font-subtitle: "Biryani", sans-serif;
+    --font-text: "Roboto", sans-serif;
+    --font-button: "Acme", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+}
+
+main {
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#title {
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: 32px;
+}
+
+#title span {
+    color: var(--green-text);
+}
+
+#currency-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+#currency-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #fff;
+}
+
+#currency-form label span {
+    font-family: var(--font-text);
+    font-size: 16px;
+}
+
+#currency-input, #submit-btn {
+    font-family: var(--font-button);
+    font-size: 16px;
+}
+
+#currency-form #currency-input, #currency-form #submit-btn {
+    padding: 8px;
+    border-radius: 2px;
+    border: none;
+}
+
+#currency-form #currency-input {
+    background-color: var(--background-table);
+    color: #fff;
+}
+
+#currency-form #submit-btn {
+    width: 120px;
+    background-color: var(--green-btn);
+}
+
+#conversion-rates-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-height: 400px;
+    background-color: var(--background-table);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+#conversion-rates-section #conversion-rates-title {
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-subtitle);
+    font-size: 18px;
+}
+
+#conversion-rates {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+#conversion-rates .conversion-rate-box {
+    font-family: var(--font-text);
+    font-size: 16px;
+    width: 25%;
+    min-width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background);
+    padding: 8px;
+    border-radius: 4px;
+    color: #fff;
+    gap: 12px;
+    text-overflow: ellipsis
+}
+
+.conversion-rate-box  .symbol-box {
+    display: flex;
+    gap: 8px;
+}
+
+.conversion-rate-box .currency-value {
+    max-width: 70px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--yellow-text);
+}
+
+@media screen and (max-width: 400px) {
+    #title {
+        font-size: 28px;
+    }
+
+    #currency-form label span, #currency-input, #submit-btn, #conversion-rates .conversion-rate-box  {
+        font-size: 14px;
+    }
+    
+    #currency-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #currency-form label, #currency-form #submit-btn {
+        width: 100%;
+    }
+
+    #conversion-rates-section #conversion-rates-title {
+        font-size: 16px;
+    }
+}
